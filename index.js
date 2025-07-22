@@ -131,3 +131,191 @@
 //     break;
 //   }
 // }
+
+//1f
+
+// const a = prompt("1-ci eded").trim();
+// const b = prompt("2-ci eded").trim();
+
+function biggerInteger(a, b) {
+  const regNum = /^[0-9]+$/;
+  if (regNum.test(a) && regNum.test(b)) {
+    if (a > b) {
+      console.log("1-ci eded boyukdur");
+    } else if (a < b) {
+      console.log("2-ci eded boyukdur");
+    } else {
+      console.log("Biri-birine beraberdir");
+    }
+  } else {
+    console.log("Duzgun eded daxil edin");
+  }
+}
+
+// biggerInteger(a, b);
+
+
+//2f
+
+function findPassword() {
+  const a = "123456";
+
+  let sifre = prompt("sifre teyin et");
+
+  if (sifre) {
+    if (a === sifre) {
+      alert("giris ugurlu");
+    } else {
+      alert("yalnis sifre");
+    }
+  } else {
+    alert("emeliyyat legv edildi");
+  }
+}
+
+// findPassword();
+
+//5f
+
+function findGrade() {
+  let bal = Number(prompt("Enter your point(0-100): ").trim());
+  if (bal >= 90 && bal <= 100) {
+    alert("Ela");
+  } else if (bal >= 70 && bal < 90) {
+    alert("Yaxsi");
+  } else if (bal >= 50 && bal < 70) {
+    alert("Kafi");
+  } else if (bal > 0 && bal < 49) {
+    alert("Zeif");
+  } else {
+    alert("Invalid input. Please enter a number between 0 and 100.");
+  }
+}
+
+// findGrade();
+
+//6f
+
+function guessTheNumber() {
+  const numUser = 7;
+
+  let guess = 5;
+
+  for (let i = 0; i < guess; guess--) {
+    const num = Number(prompt("Reqemi tapin"));
+    if (num === numUser) {
+      alert(`Tebrikler dogru tapdiniz ve ${5 - guess}`);
+    } else {
+      alert("Tesseuf Ched limitini catdiniiz. Game over.");
+    }
+  }
+}
+
+// guessTheNumber()
+
+//7f
+
+function dayOfTheWeek() {
+  const day = Number(prompt("Reqem daxil edin").trim());
+
+  switch (day) {
+    case 1:
+      alert("Monday");
+      break;
+    case 2:
+      alert("Tuesday");
+      break;
+    case 3:
+      alert("Wednesday");
+      break;
+    case 4:
+      alert("Thursday");
+      break;
+    case 5:
+      alert("Friday");
+      break;
+    case 6:
+      alert("Saturday");
+      break;
+    case 7:
+      alert("Sunday");
+      break;
+
+    default:
+      alert("Sehv daxil etmisiz");
+      break;
+  }
+}
+
+// dayOfTheWeek();
+
+//9f
+
+function findChainOrder(params) {
+  let a = prompt("1-ci eded").trim();
+  let b = prompt("2-ci eded").trim();
+  let c = prompt("3-ci eded").trim();
+
+  if (
+    a.isNaN ||
+    a === null ||
+    b === null ||
+    c === null ||
+    a === "" ||
+    b === "" ||
+    c === ""
+  ) {
+    alert("Duzgun eded daxil edin");
+  } else {
+    if (a > b && b > c) {
+      alert("Zencir tamamlandir");
+    } else if (a < b && b < c) {
+      alert("Tersine zencir");
+    } else if (a === b && b === c) {
+      alert("Zencir pozuldu");
+    } else {
+      alert("Qarisiq siralama");
+    }
+  }
+}
+
+//10f
+
+function findNumberType() {
+  let num = Number(prompt("Tek rewqem daxi ledin"));
+
+  let numNew;
+
+  while (0 < num) {
+    if (num % 7 === 0) {
+      num = num / 2;
+      console.log(num / 7, "Reqem 7-e bolundu ve onu onun yarisi");
+    } else if (num % 5 === 0) {
+      num = num - 1;
+      console.log(num - 1, "Reqem 5-e bolundu ve 1 cixildi");
+    } else if (num % 3 === 0) {
+      num = num - 2;
+      console.log(num - 2, "Reqem 3-e bolundu ve 2 cixildi");
+    } else if (num < 0) {
+      console.log("Xeta, menfi reqem");
+      break;
+    }
+  }
+}
+
+// findNumberType();
+
+//3 qat ic-ice object tapmaq
+
+const books = async function () {
+  const response = await fetch(
+    "https://www.googleapis.com/books/v1/volumes?q=Harry"
+  );
+  const data = await response.json();
+  console.log(data.items, "data");
+  for (item in data.items) {
+    console.log(data.items[item]?.volumeInfo?.imageLinks.smallThumbnail);
+  }
+};
+
+books();
