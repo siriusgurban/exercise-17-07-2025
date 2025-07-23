@@ -154,7 +154,6 @@ function biggerInteger(a, b) {
 
 // biggerInteger(a, b);
 
-
 //2f
 
 function findPassword() {
@@ -174,6 +173,18 @@ function findPassword() {
 }
 
 // findPassword();
+
+//4f
+
+const num = Number(prompt("Reqem daxil edin").trim());
+
+const count = (number) => {
+  for (let i = 0; i <= number; i++) {
+    i % 2 === 0 && console.log(i);
+  }
+};
+
+// count(num)
 
 //5f
 
@@ -196,22 +207,27 @@ function findGrade() {
 
 //6f
 
+const numUser = 7;
+
+let guess = 0;
+
 function guessTheNumber() {
-  const numUser = 7;
+  guess++;
+  const num = Number(prompt("Reqem daxil edin").trim());
 
-  let guess = 5;
-
-  for (let i = 0; i < guess; guess--) {
-    const num = Number(prompt("Reqemi tapin"));
+  if (guess <= 5) {
     if (num === numUser) {
-      alert(`Tebrikler dogru tapdiniz ve ${5 - guess}`);
+      alert(`Tebrikler dogru tapdiniz ve ${guess} cehdiniz qaldi`);
     } else {
-      alert("Tesseuf Ched limitini catdiniiz. Game over.");
+      console.log("Sehvdir, yeniden cehd edin");
+      alert("Tebrikler game over");
+      guessTheNumber();
     }
+  } else {
   }
 }
 
-// guessTheNumber()
+// guessTheNumber();
 
 //7f
 
@@ -249,20 +265,50 @@ function dayOfTheWeek() {
 
 // dayOfTheWeek();
 
+//8f
+
+const getNumbers = () => {
+  const numOne = Number(prompt("Reqem daxul edin"));
+  const numTwo = Number(prompt("Reqem daxul edin"));
+  const numThree = Number(prompt("Reqem daxul edin"));
+
+  if (numOne && numTwo && numThree) {
+    return {
+      numOne,
+      numTwo,
+      numThree,
+    };
+  } else {
+    console.log("Duzgun eded daxil edin");
+  }
+};
+
+const filterNumbers = () => {
+  const numbers = getNumbers();
+
+  const { numOne, numTwo, numThree } = numbers;
+
+  if (numOne > numTwo + numThree) {
+    console.log("Bonba kmi reqiqm  F");
+  }else if(numOne < numTwo + numThree){
+    console.log("Bonba kmi reqiqm  T");
+  }
+};
+
 //9f
 
-function findChainOrder(params) {
+function findChainOrder() {
   let a = prompt("1-ci eded").trim();
   let b = prompt("2-ci eded").trim();
   let c = prompt("3-ci eded").trim();
 
   if (
-    a.isNaN ||
-    a === null ||
-    b === null ||
-    c === null ||
-    a === "" ||
-    b === "" ||
+    a.isNaN &&
+    a === null &&
+    b === null &&
+    c === null &&
+    a === "" &&
+    b === "" &&
     c === ""
   ) {
     alert("Duzgun eded daxil edin");
@@ -278,6 +324,8 @@ function findChainOrder(params) {
     }
   }
 }
+
+// findChainOrder();
 
 //10f
 
